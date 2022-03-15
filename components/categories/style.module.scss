@@ -6,13 +6,17 @@
   background-color: #fff !important;
   flex-shrink: 0;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
 }
-
-.card-img {
+.imgContainer {
   width: 100%;
-  object-fit: contain;
-
+  position: relative;
+  height: 140px;
 }
+
 
 .header-card {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;

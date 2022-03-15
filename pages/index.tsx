@@ -1,12 +1,15 @@
-import './style.scss'
 import {useState} from "react";
-import imgWarranty from 'img/342-3426164_5-year-f.png'
-import imgAvailability from 'img/vote-icon-19.png'
-import imgObligations from 'img/png-clipart-computer.png'
-import { Categories } from 'components/categories/categories';
+import imgWarranty from '../public/img/342-3426164_5-year-f.png'
+import imgAvailability from '../public/img/vote-icon-19.png'
+import imgObligations from '../public/img/png-clipart-computer.png'
+// import { Categories } from 'components/categories/categories';
+import style from '../styles/Home.module.css'
 
-export function MainPage () {
-    const [isOpenBurgerMenu,setOpenBurgerMenu] = useState(false)
+import Image from 'next/image'
+import {Categories} from "../components/categories/categories";
+
+function Index() {
+    const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(false)
 
     function customScroll(type: string) {
         const sections = document.querySelector(type);
@@ -28,7 +31,7 @@ export function MainPage () {
             <header>
                 <nav className="nav-container">
                     <a>ТНВД 76</a>
-                    <div onClick={() => setOpenBurgerMenu((prev)=> !prev)}
+                    <div onClick={() => setOpenBurgerMenu((prev) => !prev)}
                          className={`${!isOpenBurgerMenu ? 'burger_menu' : 'burger_menu burger_menu-open'}`}>
                         <span></span>
                         <span></span>
@@ -56,7 +59,7 @@ export function MainPage () {
             <section className="category">
                 <div className="category-header">Категории</div>
 
-                <Categories />
+                <Categories/>
 
             </section>
             <section className="info-section">
@@ -80,22 +83,48 @@ export function MainPage () {
 
                 <div className="advantages-section_list">
                     <div className="card">
-                        <img className="card_img" src={imgAvailability} alt=""/>
+                        <div className={'advantages-img-container'}>
+                            <Image objectFit={'contain'} layout="fill" className="card_img" src={imgAvailability} alt=""/>
+                        </div>
                         <div className="card_title">Наличие</div>
                         <div className="card_text">Большой перечень запчастей в наличие</div>
                     </div>
                     <div className="card">
-                        <img className="card_img" src={imgWarranty} alt=""/>
+                        <div className={'advantages-img-container'}>
+
+                            <Image objectFit={'contain'} layout="fill" className="card_img" src={imgWarranty} alt=""/>
+                        </div>
+
                         <div className="card_title">Гарантия</div>
                         <div className="card_text">Полное гарантийное обслуживание на всю продукцию</div>
                     </div>
                     <div className="card">
-                        <img className="card_img" src={imgObligations} alt=""/>
+                        <div className={'advantages-img-container'}>
+                            <Image objectFit={'contain'} layout="fill" className="card_img" src={imgObligations} alt=""/>
+                        </div>
                         <div className="card_title">Обязательства</div>
                         <div className="card_text">выполнения любого объема работы в срок</div>
+                    </div>
+                </div>
+            </section>
+            <section className="address-section">
+                <div className="address-card">
+                    <div className="address-section_title">
+                        <span>Наш телефон:</span> <span>+7 906 635 9997</span>
+                    </div>
+                    <hr/>
+                    <div className="address-section_text">
+                        Москва СЗАО ул. Максимова, д. 28. Метро Горки
+                        Мы находимся в большом ангарном помещении на северо-западе города. Подъезд со стороны Зеленой
+                        улицы.
+                        <br/>
+                        <br/>
+                        Пн-Вс: 10:00–21:00
                     </div>
                 </div>
             </section>
         </main>
     )
 }
+
+export default Index
