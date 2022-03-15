@@ -3,7 +3,6 @@ import {ModalBuyItem} from "../../components/modalBuyItem";
 import Link from "next/link";
 import {ascSortFunction, descSortFunction } from "../../tools/sortFuncitons";
 import arrowBack from '../../public/img/arrow-back.svg'
-
 import { formatNumber } from "../../tools/format-number";
 import Image from 'next/image'
 import { tnvd_data } from "../../data/tnvd";
@@ -38,7 +37,7 @@ import { tnvd_data } from "../../data/tnvd";
             <header>
                 <nav className="nav-container">
                     <Link href="/">
-                        <Image width={20} height={20} src={arrowBack} />
+                        <Image width={20} height={20} src={arrowBack} className='arrow-back-svg' />
                     </Link>
                     <a>ТНВД 76</a>
 
