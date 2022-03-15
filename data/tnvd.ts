@@ -92,11 +92,6 @@ export const tnvd_data = [
     },
     {
         img: 'https://diz-avto.ru/wp-content/uploads/2021/01/60cf7f538231e_TNVD-171-7.jpg',
-        name: 'Тнвд-60.1111005-30',
-        price: '25300'
-    },
-    {
-        img: 'https://diz-avto.ru/wp-content/uploads/2021/01/60cf7f538231e_TNVD-171-7.jpg',
         name: 'Тнвд-337.1111005-20',
         price: '75000'
     },

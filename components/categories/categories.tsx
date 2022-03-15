@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import style from './style.module.scss'
 import Image from 'next/image'
+import catalog34 from '../../public/img/catalog34.png'
+import pgPair from '../../public/img/96c252f19a43a8c4309559b87e9142e5 (1).png'
+import azpi from '../../public/img/_АЗПИ-500x500 (1).png'
+import tnnd from '../../public/img/f7ebd617094fdc0cc370899498d13d56 (1).png'
+import other from '../../public/img/64722 (1).png'
 
 
 export const Categories = () => {
@@ -12,7 +17,7 @@ export const Categories = () => {
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                               src="/../public/img/catalog34.png"/>
+                               src={catalog34} />
                     </div>
                     <div className={style.contentCard}>
                         <span className={style.headerCard}>Тнвд</span>
@@ -26,7 +31,7 @@ export const Categories = () => {
             <div className={style.card}>
                 <div className={style.imgContainer}>
                     <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src="/../public/img/96c252f19a43a8c4309559b87e9142e5 (1).png"/>
+                           src={pgPair} />
                 </div>
                 <div className={style.contentCard}>
                     <span className={style.headerCard}>Плунжерные пары</span>
@@ -37,7 +42,7 @@ export const Categories = () => {
             <div className={style.card}>
                 <div className={style.imgContainer}>
                     <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src="/../public/img/_АЗПИ-500x500 (1).png"/>
+                           src={azpi}/>
                 </div>
                 <div className={style.contentCard}>
                     <span className={style.headerCard}>Распылители</span>
@@ -48,7 +53,7 @@ export const Categories = () => {
             <div className={style.card}>
                 <div className={style.imgContainer}>
                     <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src="/../public/img/f7ebd617094fdc0cc370899498d13d56 (1).png"/>
+                           src={tnnd}/>
                 </div>
                 <div className={style.contentCard}>
                     <span className={style.headerCard}>ТННД</span>
@@ -59,7 +64,7 @@ export const Categories = () => {
             <div className={style.card}>
                 <div className={style.imgContainer}>
                     <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src="/../public/img/64722 (1).png"/>
+                           src={other}/>
                 </div>
                 <div className={style.contentCard}>
                     <span className={style.headerCard}>Другое</span>
