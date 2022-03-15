@@ -2,9 +2,6 @@ import {useState} from "react";
 import imgWarranty from '../public/img/342-3426164_5-year-f.png'
 import imgAvailability from '../public/img/vote-icon-19.png'
 import imgObligations from '../public/img/png-clipart-computer.png'
-// import { Categories } from 'components/categories/categories';
-import style from '../styles/Home.module.css'
-
 import Image from 'next/image'
 import {Categories} from "../components/categories/categories";
 
