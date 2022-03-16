@@ -6,8 +6,8 @@ import arrowBack from '../../public/img/arrow-back.svg'
 import {formatNumber} from "../../tools/format-number";
 import Image from 'next/image'
 import {useRouter} from 'next/router'
-import {defaultImg} from "../consts/consts";
 import {getDataCategory} from "../../data/getDataCategory";
+import { defaultImg } from "../../consts/consts";
 
 function ItemListPage() {
     const {query} = useRouter()
