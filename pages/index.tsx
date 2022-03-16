@@ -2,6 +2,7 @@ import {useState} from "react";
 import imgWarranty from '../public/img/342-3426164_5-year-f.png'
 import imgAvailability from '../public/img/vote-icon-19.png'
 import imgObligations from '../public/img/png-clipart-computer.png'
+import Head from 'next/head'
 
 
 import Image from 'next/image'
@@ -27,6 +28,9 @@ function Index() {
 
     return (
         <main>
+            <Head>
+                <meta name="yandex-verification" content="4f4c25a806e74627" />
+            </Head>
             <header>
                 <nav className="nav-container">
                     <a>ТНВД 76</a>
