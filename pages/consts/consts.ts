@@ -1,0 +1,1 @@
+export const defaultImg = 'https://bitmall.ru/image/cache/no_photo-1500x980.png'

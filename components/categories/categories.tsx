@@ -17,7 +17,7 @@ export const Categories = () => {
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                               src={catalog34} />
+                               src={catalog34}/>
                     </div>
                     <div className={style.contentCard}>
                         <span className={style.headerCard}>Тнвд</span>
@@ -28,50 +28,58 @@ export const Categories = () => {
                     </div>
                 </div>
             </Link>
-            <div className={style.card}>
-                <div className={style.imgContainer}>
-                    <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src={pgPair} />
+            <Link href={'category/plunger-pair'}>
+                <div className={style.card}>
+                    <div className={style.imgContainer}>
+                        <Image layout="fill" objectFit={"contain"} className={style.cardImg}
+                               src={pgPair}/>
+                    </div>
+                    <div className={style.contentCard}>
+                        <span className={style.headerCard}>Плунжерные пары</span>
+                    </div>
+                    <div className="actions-container">
+                    </div>
                 </div>
-                <div className={style.contentCard}>
-                    <span className={style.headerCard}>Плунжерные пары</span>
+            </Link>
+            <Link href={'category/sprayers'}>
+                <div className={style.card}>
+                    <div className={style.imgContainer}>
+                        <Image layout="fill" objectFit={"contain"} className={style.cardImg}
+                               src={azpi}/>
+                    </div>
+                    <div className={style.contentCard}>
+                        <span className={style.headerCard}>Распылители</span>
+                    </div>
+                    <div className="actions-container">
+                    </div>
                 </div>
-                <div className="actions-container">
+            </Link>
+            <Link href={'category/tnnd'}>
+                <div className={style.card}>
+                    <div className={style.imgContainer}>
+                        <Image layout="fill" objectFit={"contain"} className={style.cardImg}
+                               src={tnnd}/>
+                    </div>
+                    <div className={style.contentCard}>
+                        <span className={style.headerCard}>ТННД</span>
+                    </div>
+                    <div className="actions-container">
+                    </div>
                 </div>
-            </div>
-            <div className={style.card}>
-                <div className={style.imgContainer}>
-                    <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src={azpi}/>
+            </Link>
+            <Link href={'category/others'}>
+                <div className={style.card}>
+                    <div className={style.imgContainer}>
+                        <Image layout="fill" objectFit={"contain"} className={style.cardImg}
+                               src={other}/>
+                    </div>
+                    <div className={style.contentCard}>
+                        <span className={style.headerCard}>Другое</span>
+                    </div>
+                    <div className="actions-container">
+                    </div>
                 </div>
-                <div className={style.contentCard}>
-                    <span className={style.headerCard}>Распылители</span>
-                </div>
-                <div className="actions-container">
-                </div>
-            </div>
-            <div className={style.card}>
-                <div className={style.imgContainer}>
-                    <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src={tnnd}/>
-                </div>
-                <div className={style.contentCard}>
-                    <span className={style.headerCard}>ТННД</span>
-                </div>
-                <div className="actions-container">
-                </div>
-            </div>
-            <div className={style.card}>
-                <div className={style.imgContainer}>
-                    <Image layout="fill" objectFit={"contain"} className={style.cardImg}
-                           src={other}/>
-                </div>
-                <div className={style.contentCard}>
-                    <span className={style.headerCard}>Другое</span>
-                </div>
-                <div className="actions-container">
-                </div>
-            </div>
+            </Link>
         </div>
-    )
+)
 }

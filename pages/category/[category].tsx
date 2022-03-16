@@ -1,23 +1,25 @@
 import {useEffect, useState} from "react";
 import {ModalBuyItem} from "../../components/modalBuyItem";
 import Link from "next/link";
-import {ascSortFunction, descSortFunction } from "../../tools/sortFuncitons";
+import {ascSortFunction, descSortFunction} from "../../tools/sortFuncitons";
 import arrowBack from '../../public/img/arrow-back.svg'
-import { formatNumber } from "../../tools/format-number";
+import {formatNumber} from "../../tools/format-number";
 import Image from 'next/image'
-import { tnvd_data } from "../../data/tnvd";
+import {useRouter} from 'next/router'
+import {defaultImg} from "../consts/consts";
+import {getDataCategory} from "../../data/getDataCategory";
 
- function ItemListPage() {
-    const initialData = tnvd_data
+function ItemListPage() {
+    const {query} = useRouter()
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
 
 
     const [sortValue, setSortValue] = useState(defaultSort)
-    const [data, setData] = useState(initialData)
+    const [data, setData] = useState<any[]>([])
     const [isOpenSortMenu, setOpenSortMenu] = useState(false)
-    const [isOpenBuyModal,setOpenBuyModal] = useState(false)
+    const [isOpenBuyModal, setOpenBuyModal] = useState(false)
 
     const handleSelect = (e: any) => {
         setSortValue(e.target?.innerText)
@@ -31,13 +33,19 @@ import { tnvd_data } from "../../data/tnvd";
             setData([...data].sort(sortFunction))
         }
     }, [sortValue])
-    const handleOpenBuyModal = ()=> setOpenBuyModal(true)
+    useEffect(()=>{
+        const {category = ''} = query
+        const categoryName = typeof category === 'string' ? category : category[0]
+        const defaultData = getDataCategory(categoryName)
+        setData(defaultData)
+    },[query])
+    const handleOpenBuyModal = () => setOpenBuyModal(true)
     return (
         <main className={'item-list-page-container'}>
             <header>
                 <nav className="nav-container">
                     <Link href="/">
-                        <Image width={20} height={20} src={arrowBack} className='arrow-back-svg' />
+                        <Image width={20} height={20} src={arrowBack} className='arrow-back-svg'/>
                     </Link>
                     <a>ТНВД 76</a>
 
@@ -67,11 +75,11 @@ import { tnvd_data } from "../../data/tnvd";
 
                         <div key={item.name} className="item-card">
                             <div className="img-container">
-                                <img src={item.img}/>
+                                <img src={item?.img || defaultImg}/>
                             </div>
                             <div className="info-container">
                                 <div className="header-card">
-                                    <div>{item.name}</div>
+                                    <div className='category-card-name'>{item.name}</div>
                                     <div>{formatNumber(item.price)} руб</div>
                                 </div>
                                 <div className="info"></div>
@@ -91,8 +99,9 @@ import { tnvd_data } from "../../data/tnvd";
                     )}
                 </div>
             </div>
-            <ModalBuyItem isOpen={isOpenBuyModal} handleClose={()=>setOpenBuyModal(false)}/>
+            <ModalBuyItem isOpen={isOpenBuyModal} handleClose={() => setOpenBuyModal(false)}/>
         </main>
     )
 }
+
 export default ItemListPage

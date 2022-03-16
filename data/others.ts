@@ -1,4 +1,4 @@
-export const spareTnvd = [
+export const others_data = [
 
     {
         img: 'https://www.rdauto.ru/image/cache/catalog/photo/yazda/prochie/60.1111020-30-445x445.jpg',

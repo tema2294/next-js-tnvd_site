@@ -27,8 +27,12 @@ a {
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
     overflow: hidden;
-}
 
+}
+    .category-card-name {
+        white-space: pre-line;
+        text-align: left;
+    }
 .action-card-container {
     width: 100%;
     display: flex;
@@ -60,11 +64,11 @@ a {
 }
 
 .img-container {
-    height: 70%;
     overflow: hidden;
     border-bottom: 3px solid black;
     display: flex;
     background: #e7e7e7;
+    height: 250px;
 }
 
 .img-container > img {
