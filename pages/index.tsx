@@ -30,10 +30,15 @@ function Index() {
         <main>
             <Head>
                 <meta name="yandex-verification" content="4f4c25a806e74627" />
+                <title>Топливные насосы высокого давления ремонт и продажа. ТНВД - Дизель маркет 76 Ярославль.</title>
+                <meta
+                    name="description"
+                    content="Топливные насосы высокого давления ремонт и продажа. ТНВД - Дизель маркет 76 Ярославль.Распылители , подкачки , плунжерные пары ,ТННД, насосы."
+                />
             </Head>
             <header>
                 <nav className="nav-container">
-                    <a>ТНВД 76</a>
+                    <div>ТНВД 76</div>
                     <div onClick={() => setOpenBurgerMenu((prev) => !prev)}
                          className={`${!isOpenBurgerMenu ? 'burger_menu' : 'burger_menu burger_menu-open'}`}>
                         <span></span>
@@ -55,7 +60,7 @@ function Index() {
             <section className="main-section">
                 <div className="info-container">
                     <div className="info-container_title">Дизель центр в Ярославле,<br/> качество и гарантия!</div>
-                    <div className="info-container_text">Ремонт и продажа Тнвд и комплектующих</div>
+                    <h1 className="info-container_text">Ремонт и продажа Тнвд и комплектующих</h1>
                     <div onClick={downloadFile} className="info-container_btn">Скачать прайс</div>
                 </div>
             </section>

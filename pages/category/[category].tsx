@@ -8,13 +8,15 @@ import Image from 'next/image'
 import {useRouter} from 'next/router'
 import {getDataCategory} from "../../data/getDataCategory";
 import { defaultImg } from "../../consts/consts";
+import Head from "next/head";
+import {getDataCategoryMetaName} from "../../data/getDataCategoryMetaName";
 
 function ItemListPage() {
     const {query} = useRouter()
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
-
+    const categoryName = getDataCategoryMetaName(query?.category)
 
     const [sortValue, setSortValue] = useState(defaultSort)
     const [data, setData] = useState<any[]>([])
@@ -33,15 +35,25 @@ function ItemListPage() {
             setData([...data].sort(sortFunction))
         }
     }, [sortValue])
+
     useEffect(()=>{
         const {category = ''} = query
         const categoryName = typeof category === 'string' ? category : category[0]
         const defaultData = getDataCategory(categoryName)
         setData(defaultData)
     },[query])
+
     const handleOpenBuyModal = () => setOpenBuyModal(true)
     return (
         <main className={'item-list-page-container'}>
+            <Head>
+                <meta name="yandex-verification" content="4f4c25a806e74627" />
+                <title>Список товаров в категории {categoryName}</title>
+                <meta
+                    name="description"
+                    content="Топливные насосы высокого давления ремонт и продажа. ТНВД - Дизель маркет 76 Ярославль.Распылители , подкачки , плунжерные пары ,ТННД, насосы."
+                />
+            </Head>
             <header>
                 <nav className="nav-container">
                     <Link href="/">
@@ -57,6 +69,7 @@ function ItemListPage() {
 
             </header>
             <div className="item-section">
+                <h1>Список товаров в категории {categoryName} :</h1>
                 <div className="action-options">
                     <div>
                         <div className="select">
