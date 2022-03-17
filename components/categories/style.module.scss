@@ -11,6 +11,7 @@
   align-items: center;
   padding: 25px;
   cursor: pointer;
+  gap: 15px;
 
 }
 .card:hover {
@@ -22,16 +23,18 @@
   position: relative;
   height: 140px;
 }
-
+.cardTitle {
+  font-size: 18px;
+  margin-top: 10px;
+}
 
 .header-card {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   font-size: 1.5rem;
   line-height: 1.334;
   letter-spacing: 0em;
   margin-bottom: 0.35em;
-  color: black;
+  color: red!important;
 }
 
 

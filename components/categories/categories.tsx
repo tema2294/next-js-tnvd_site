@@ -20,8 +20,7 @@ export const Categories = () => {
                                src={catalog34}/>
                     </div>
                     <div className={style.contentCard}>
-                        <span className={style.headerCard}>Тнвд</span>
-
+                        <span className={style.cardTitle}>Тнвд</span>
                     </div>
                     <div className="actions-container">
 
@@ -35,7 +34,7 @@ export const Categories = () => {
                                src={pgPair}/>
                     </div>
                     <div className={style.contentCard}>
-                        <span className={style.headerCard}>Плунжерные пары</span>
+                        <span className={style.cardTitle}>Плунжерные пары</span>
                     </div>
                     <div className="actions-container">
                     </div>
@@ -48,7 +47,7 @@ export const Categories = () => {
                                src={azpi}/>
                     </div>
                     <div className={style.contentCard}>
-                        <span className={style.headerCard}>Распылители</span>
+                        <span className={style.cardTitle}>Распылители</span>
                     </div>
                     <div className="actions-container">
                     </div>
@@ -61,7 +60,7 @@ export const Categories = () => {
                                src={tnnd}/>
                     </div>
                     <div className={style.contentCard}>
-                        <span className={style.headerCard}>ТННД</span>
+                        <span className={style.cardTitle}>ТННД</span>
                     </div>
                     <div className="actions-container">
                     </div>
@@ -74,7 +73,7 @@ export const Categories = () => {
                                src={other}/>
                     </div>
                     <div className={style.contentCard}>
-                        <span className={style.headerCard}>Другое</span>
+                        <span className={style.cardTitle}>Другое</span>
                     </div>
                     <div className="actions-container">
                     </div>

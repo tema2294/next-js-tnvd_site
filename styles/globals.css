@@ -217,12 +217,12 @@ nav > * {
 .card_title {
   margin-bottom: 25px;
   margin-top: 37px;
-  font-size: 18px;
+  font-size: 25px;
   line-height: 1.35;
   font-weight: 600;
 }
 .card_text {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.55;
   font-weight: 300;
   max-width: 360px;
