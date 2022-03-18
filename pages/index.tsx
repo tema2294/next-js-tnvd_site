@@ -29,7 +29,7 @@ function Index() {
     return (
         <main>
             <Head>
-                <meta name="yandex-verification" content="4f4c25a806e74627" />
+                <meta name="yandex-verification" content="8a95b949a14d61f4" />
                 <title>Топливные насосы высокого давления ремонт и продажа. ТНВД - Дизель маркет 76 Ярославль.</title>
                 <meta
                     name="description"
