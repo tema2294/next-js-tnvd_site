@@ -15,6 +15,6 @@ export const getDataCategoryMetaName = (category: any):string => {
         case 'plunger-pair':
             return 'плунжерные пары'
         default:
-            return 'топливное оборудывание'
+            return 'undefined'
     }
 }

@@ -12,7 +12,8 @@ import Head from "next/head";
 import {getDataCategoryMetaName} from "../../data/getDataCategoryMetaName";
 
 function ItemListPage() {
-    const {query} = useRouter()
+    const router = useRouter()
+    const { query } = router
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
@@ -35,7 +36,11 @@ function ItemListPage() {
             setData([...data].sort(sortFunction))
         }
     }, [sortValue])
-
+    useEffect(()=>{
+        if (categoryName === 'undefined') {
+            router.push('/undefined')
+        }
+    },[categoryName])
     useEffect(()=>{
         const {category = ''} = query
         const categoryName = typeof category === 'string' ? category : category[0]
