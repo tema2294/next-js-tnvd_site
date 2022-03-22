@@ -36,7 +36,7 @@ main {
 
 
 .main-section {
-  background-image: url('https://thumb.tildacdn.com/tild3430-6465-4637-b962-373830653338/-/format/webp/k105pom1367.jpg');
+  background-image: url('../public/img/background-image.jpg');
   background-size:cover ;
 
   position: relative;
@@ -53,7 +53,7 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,.5);
+  background: rgba(0,0,0,.7);
   z-index: 2;
   height: 100vh;
   width: 100vw;

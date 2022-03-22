@@ -60,8 +60,9 @@ function Index() {
             </header>
             <section className="main-section">
                 <div className="info-container">
-                    <div className="info-container_title">Дизель центр в Ярославле,<br/> качество и гарантия!</div>
+                    <div className="info-container_title">Дизель маркет в Ярославле,<br/> качество и гарантия!</div>
                     <h1 className="info-container_text">Ремонт и продажа Тнвд и комплектующих</h1>
+                    <h2 className="info-container_text">Доставка по всей России!</h2>
                     <div onClick={downloadFile} className="info-container_btn">Скачать прайс</div>
                 </div>
             </section>
@@ -84,7 +85,7 @@ function Index() {
                         работ.
                     </p>
                     <p>
-                        Отправим товар в любую точку мира.
+                        Доставка по всей России.
                     </p>
                 </div>
             </section>
