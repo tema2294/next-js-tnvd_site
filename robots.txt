@@ -2,3 +2,4 @@
 # Allow all crawlers
 User-agent: *
 Allow: /
+Sitemap: https://www.yar-diesel-market.ru/sitemap.xml

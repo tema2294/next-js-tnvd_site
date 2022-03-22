@@ -1,15 +1,14 @@
 import {useEffect, useState} from "react";
-import {ModalBuyItem} from "../../components/modalBuyItem";
+import {ModalBuyItem} from "../../../components/modalBuyItem";
 import Link from "next/link";
-import {ascSortFunction, descSortFunction} from "../../tools/sortFuncitons";
-import arrowBack from '../../public/img/arrow-back.svg'
-import {formatNumber} from "../../tools/format-number";
-import Image from 'next/image'
+import {ascSortFunction, descSortFunction} from "../../../tools/sortFuncitons";
+import {formatNumber} from "../../../tools/format-number";
 import {useRouter} from 'next/router'
-import {getDataCategory} from "../../data/getDataCategory";
-import { defaultImg } from "../../consts/consts";
+import {getDataCategory} from "../../../data/getDataCategory";
+import { defaultImg } from "../../../consts/consts";
 import Head from "next/head";
-import {getDataCategoryMetaName} from "../../data/getDataCategoryMetaName";
+import {getDataCategoryMetaName} from "../../../data/getDataCategoryMetaName";
+import {Header} from "../../../components/header/header";
 
 function ItemListPage() {
     const router = useRouter()
@@ -17,7 +16,7 @@ function ItemListPage() {
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
-    const categoryName = getDataCategoryMetaName(query?.category)
+    const { categoryName,metaDescription } = getDataCategoryMetaName(query?.category)
 
     const [sortValue, setSortValue] = useState(defaultSort)
     const [data, setData] = useState<any[]>([])
@@ -38,13 +37,14 @@ function ItemListPage() {
     }, [sortValue])
     useEffect(()=>{
         if (categoryName === 'undefined') {
-            router.push('/undefined')
+            router.push('/категория-не-найдена')
         }
     },[categoryName])
+
     useEffect(()=>{
-        const {category = ''} = query
-        const categoryName = typeof category === 'string' ? category : category[0]
-        const defaultData = getDataCategory(categoryName)
+        const {categoryName = ''} = query
+        const categoryNameString = typeof categoryName === 'string' ? categoryName : categoryName[0]
+        const defaultData = getDataCategory(categoryNameString)
         setData(defaultData)
     },[query])
 
@@ -53,26 +53,13 @@ function ItemListPage() {
         <main className={'item-list-page-container'}>
             <Head>
                 <meta name="yandex-verification" content="4f4c25a806e74627" />
-                <title>Список товаров в категории {categoryName}</title>
+                <title>{categoryName} в магазине Дизель маркет . {categoryName} цены , большой каталог, доставка по всей Росии. Гарантия и низкие цены. Дизель маркет 76. </title>
                 <meta
                     name="description"
-                    content="Топливные насосы высокого давления ремонт и продажа. ТНВД - Дизель маркет 76 Ярославль.Распылители , подкачки , плунжерные пары ,ТННД, насосы."
+                    content={metaDescription}
                 />
             </Head>
-            <header>
-                <nav className="nav-container">
-                    <Link href="/">
-                        <Image width={30} height={30} src={arrowBack} className='arrow-back-svg'/>
-                    </Link>
-                    <Link href="/">ТНВД 76</Link>
-
-                    <a className="nav-info" href="tel:+79066359997">
-                        <div className="nav-info_work-time">Пн-Вс 10:00 - 21:00</div>
-                        <div className="nav-info_work-number">+ 7 906 635 9997</div>
-                    </a>
-                </nav>
-
-            </header>
+          <Header/>
             <div className="item-section">
                 <h1>Список товаров в категории {categoryName} :</h1>
                 <div className="action-options">
