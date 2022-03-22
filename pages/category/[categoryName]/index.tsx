@@ -16,7 +16,7 @@ function ItemListPage() {
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
-    const { categoryName,metaDescription } = getDataCategoryMetaName(query?.category)
+    const { categoryName,metaDescription } = getDataCategoryMetaName(query?.categoryName)
 
     const [sortValue, setSortValue] = useState(defaultSort)
     const [data, setData] = useState<any[]>([])

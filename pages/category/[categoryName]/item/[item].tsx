@@ -1,13 +1,11 @@
-
 import {useRouter} from 'next/router'
-
 import Head from "next/head";
-import { Header } from "../../../components/header/header";
+import { Header } from "../../../../components/header/header";
+import style from '../../../../styles/itemPage.module.css'
 
 function ItemCardPage() {
     const router = useRouter()
     const { query } = router
-    console.log(query)
     const categoryName = query?.category
 
 
@@ -18,11 +16,13 @@ function ItemCardPage() {
                 <title>Список товаров в категории {categoryName}</title>
                 <meta
                     name="description"
-                    content="Топливные насосы высокого давления ремонт и продажа. ТНВД - Дизель маркет 76 Ярославль.Распылители , подкачки , плунжерные пары ,ТННД, насосы."
+                    content="Страница товара."
                 />
             </Head>
             <Header />
+            <div className={style.container}>
 
+            </div>
         </main>
     )
 }
