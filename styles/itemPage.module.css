@@ -1,5 +1,145 @@
 .container {
     width: 100%;
-    height: 500px;
-    background: red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+.itemCard {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 16%);
+    padding: 16px;
+    border: 1px solid #eaeaea;
+}
+.infoContainer {
+    border-radius: 11px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+    margin-bottom: 24px;
+    min-height: 140px;
+    padding: 16px 12px;
+
+    display: grid;
+
+    grid-template-areas: "price like btnBuy"
+                       "otherInfo otherInf ootherInfo";
+    grid-template-rows: 44px 52px;
+    grid-template-columns: 56% 8.3% 30%;
+    column-gap: 10px;
+    row-gap: 8px;
+    width: 530px;
+}
+
+.price {
+    grid-area: price;
+    background: linear-gradient(270deg,#f6f6f6,hsla(0,0%,100%,0));
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    min-height: 44px;
+    position: relative;
+    font-size: 22px;
+    padding-left: 20px;
+}
+.like {
+    grid-area: like;
+    font-weight: 400!important;
+    height: 44px;
+    line-height: 42px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btnBuy {
+    grid-area: btnBuy;
+    background: linear-gradient(0deg,#fc8507,#ffa218);
+    border-color: #fc8507 transparent #ffa218;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
+    font-weight: 400;
+    height: 44px;
+    line-height: 42px;
+    min-width: 44px!important;
+    padding: 0 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.widgetInfo {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    flex-basis: auto;
+    flex-grow: 1;
+    height: 52px;
+    justify-content: center;
+    margin-right: 5px;
+    min-width: 120px;
+    padding: 0 8px!important;
+    width: fit-content;
+}
+.widgetValue {
+    color: #0d61af;
+}
+.widgetValue:hover {
+    color: #fc8507;
+}
+.btnBuy:hover {
+    background: linear-gradient(0deg, #fc9f53,#ffa218);
+    border-color: #fdb25f transparent #ffa218;
+}
+.otherInfoContainer {
+    grid-area: otherInfo;
+    display: flex;
+}
+.swiperContainer {
+    width: 60vw;
+    max-width: 1200px;
+    position: relative;
+    height: fit-content;
+    margin-bottom: 30px;
+}
+.swiperImg {
+    width: 300px;
+    display: block;
+}
+
+@media (max-width: 800px) {
+    .swiperContainer {
+        width: 100vw;
+    }
+    .infoContainer {
+        width: 80%;
+    }
+    .infoContainer > img {
+        width: 100%;
+    }
+}
+@media (max-width: 500px) {
+    .infoContainer {
+        width: 85%;
+        justify-content: center;
+    }
+    .widgetInfo {
+        width: 60px;
+    }
+    .price {
+        padding-left: 0;
+    }
 }

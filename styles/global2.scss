@@ -14,10 +14,12 @@ a {
     cursor: pointer;
 }
 
-.nav-container {
 
+.section-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 16%);
 }
-
 .item-card {
     display: flex;
     flex-direction: column;
@@ -88,6 +90,9 @@ header {
 .nav-container {
     background: black;
 }
+    .nav-back-link {
+    margin-right: 176px;
+}
 
 .item-section {
     display: flex;
@@ -119,7 +124,7 @@ header {
 }
 
 .item-section {
-    padding: 50px 15vw 50px;
+    padding: 0 15vw 50px;
 
 }
 
@@ -208,7 +213,51 @@ header {
     display: none;
 }
 }
+.swiper {
+    width: 100%;
+    height: 100%;
+}
 
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+    padding: 0 10px;
+}
+.shop-page-category-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.padding-5 {
+    padding: 100px 0;
+
+}
+.shop-page-category-container .burger_menu span {
+    background: black!important;
+}
+.swiper-slide-next , .swiper-slide-prev{
+}
 @media (max-width: 800px) {
     .item-list-page-container {
 

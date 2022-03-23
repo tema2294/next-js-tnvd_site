@@ -7,9 +7,11 @@ export const Header = ()=> {
     return (
         <header>
             <nav className="nav-container">
-                <Link href="/">
-                    <Image width={30} height={30} src={arrowBack} className='arrow-back-svg'/>
-                </Link>
+                <div className='nav-back-link'>
+                    <Link href="/">
+                        <Image width={30} height={30} src={arrowBack} className='arrow-back-svg'/>
+                    </Link>
+                </div>
                 <Link href="/">ТНВД 76</Link>
 
                 <a className="nav-info" href="tel:+79066359997">

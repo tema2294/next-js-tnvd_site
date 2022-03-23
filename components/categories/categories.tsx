@@ -10,10 +10,9 @@ import other from '../../public/img/64722 (1).png'
 
 export const Categories = () => {
 
-
     return (
         <div className="category-list">
-            <Link href={'category/tnvd'}>
+            <Link href={'/category/tnvd'} replace>
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}
@@ -27,7 +26,7 @@ export const Categories = () => {
                     </div>
                 </div>
             </Link>
-            <Link href={'category/plunger-pair'}>
+            <Link href={'/category/plunger-pair'}>
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}
@@ -40,7 +39,7 @@ export const Categories = () => {
                     </div>
                 </div>
             </Link>
-            <Link href={'category/sprayers'}>
+            <Link href={'/category/sprayers'}>
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}
@@ -53,7 +52,7 @@ export const Categories = () => {
                     </div>
                 </div>
             </Link>
-            <Link href={'category/tnnd'}>
+            <Link href={'/category/tnnd'}>
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}
@@ -66,7 +65,7 @@ export const Categories = () => {
                     </div>
                 </div>
             </Link>
-            <Link href={'category/others'}>
+            <Link href={'/category/others'}>
                 <div className={style.card}>
                     <div className={style.imgContainer}>
                         <Image layout="fill" objectFit={"contain"} className={style.cardImg}

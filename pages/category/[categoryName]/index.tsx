@@ -9,10 +9,12 @@ import { defaultImg } from "../../../consts/consts";
 import Head from "next/head";
 import {getDataCategoryMetaName} from "../../../data/getDataCategoryMetaName";
 import {Header} from "../../../components/header/header";
+import {BurgerCategories} from "../../../components/burderCategories/burgerCategories";
 
 function ItemListPage() {
     const router = useRouter()
     const { query } = router
+    console.log(query?.categoryName)
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
@@ -60,6 +62,9 @@ function ItemListPage() {
                 />
             </Head>
           <Header/>
+            <div className="shop-page-category-container">
+                <BurgerCategories/>
+            </div>
             <div className="item-section">
                 <h1>Список товаров в категории {categoryName} :</h1>
                 <div className="action-options">
@@ -77,7 +82,6 @@ function ItemListPage() {
                 </div>
                 <div className="item-container">
                     {data.map((item: any) =>
-
                         <div key={item.name} className="item-card">
                             <div className="img-container">
                                 <img src={item?.img || defaultImg}/>
@@ -89,7 +93,8 @@ function ItemListPage() {
                                 </div>
                                 <div className="info"></div>
                                 <div className="action-card-container">
-                                    <div className="btn" onClick={handleOpenBuyModal}>
+                                    <Link href={`${query?.categoryName}/item/${item?.name}`}>
+                                    <div className="btn" >
                                         <svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
                                              focusable="false"
                                              aria-hidden="true" viewBox="0 0 24 24" data-testid="AddShoppingCartIcon">
@@ -98,6 +103,7 @@ function ItemListPage() {
                                         </svg>
                                         купить
                                     </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
