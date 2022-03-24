@@ -4,8 +4,10 @@ import {sprayers_data} from "./sprayers";
 import {others_data} from "./others";
 import {plungerPair_data} from "./plungerPair";
 
-export const getDataCategory = (category: string):any[] => {
-    switch (category) {
+export const getDataCategory = (category: string | string[]):any[] => {
+    const categoryNameString = typeof category === 'string' ? category : category[0]
+
+    switch (categoryNameString) {
         case 'tnnd':
             return tnnd_data
         case 'tnvd':

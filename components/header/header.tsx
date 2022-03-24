@@ -3,12 +3,13 @@ import Image from "next/image";
 import arrowBack from '../../public/img/arrow-back.svg'
 
 
-export const Header = ()=> {
+export const Header = (props: {prevHref: string})=> {
+    const {prevHref} = props
     return (
         <header>
             <nav className="nav-container">
                 <div className='nav-back-link'>
-                    <Link href="/">
+                    <Link href={prevHref}>
                         <Image width={30} height={30} src={arrowBack} className='arrow-back-svg'/>
                     </Link>
                 </div>

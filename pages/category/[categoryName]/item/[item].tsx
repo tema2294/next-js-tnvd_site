@@ -12,27 +12,39 @@ import "swiper/css/navigation";
 import {Pagination, Navigation} from "swiper";
 import heart from '/public/img/heart.svg'
 import Image from 'next/image'
+import {useEffect, useState} from "react";
+import {getDataCategory} from "../../../../data/getDataCategory";
+import {ModalBuyItem} from "../../../../components/modalBuyItem";
+import { getPrevHref } from '../../../../tools/getPrevHref';
 
 function ItemCardPage() {
     const router = useRouter()
     const {query} = router
-    const categoryName = query?.category
-    const item = tnvd_data[0]
-    console.log(query)
+    const {item: itemName,categoryName = ''} = query
+    const [item,setItem] = useState<any>()
+    const [isOpenBuyModal, setOpenBuyModal] = useState(false)
+    const prevHref = getPrevHref(router)
+    useEffect(()=>{
+        const defaultData = getDataCategory(categoryName)
+         setItem(defaultData.find((item)=>item.name === itemName))
+    },[itemName])
+
+    const handleOpenBuyModal = () => setOpenBuyModal(true)
 
     return (
         <main className={'item-list-page-container'}>
             <Head>
                 <meta name="yandex-verification" content="4f4c25a806e74627"/>
-                <title>Список товаров в категории {categoryName}</title>
+                <title>{`Купить Видеокарта ${item?.name || ''} в интернет магазине Дизель Маркет. Характеристики, цена ${item?.name || ''}`}</title>
                 <meta
                     name="description"
-                    content="Страница товара."
+                    content={`Купить с гарантией качества ${item?.name || ''} в магазине Дизель Маркет. Выгодные цены на ${item?.name || ''} в сети магазинов Дизель Маркет. Доставка по всей России.`}
                 />
             </Head>
-            <Header/>
+            <Header prevHref={prevHref}/>
+            {item &&
             <div className={style.container}>
-                <div key={item.name} className={style.itemCard}>
+                <div key={item?.name} className={style.itemCard}>
                     <div className={style.swiperContainer}>
                         <Swiper
                             pagination={{
@@ -43,9 +55,6 @@ function ItemCardPage() {
                             className="mySwiper"
                         >
                             <SwiperSlide><img className={style.swiperImg} src={item?.img || defaultImg}/></SwiperSlide>
-                            <SwiperSlide><img className={style.swiperImg} src={item?.img || defaultImg}/></SwiperSlide>
-                            <SwiperSlide><img className={style.swiperImg} src={item?.img || defaultImg}/></SwiperSlide>
-
                         </Swiper>
                     </div>
                     <div className={style.infoContainer}>
@@ -53,7 +62,7 @@ function ItemCardPage() {
                         <div className={style.like}>
                            <Image height={30} width={30} src={heart}/>
                         </div>
-                        <div className={style.btnBuy}>Купить</div>
+                        <div onClick={handleOpenBuyModal} className={style.btnBuy}>Купить</div>
                         <div className={style.otherInfoContainer}>
                             <div className={style.widgetInfo}>
                                 <div>Быстрая доставка:</div>
@@ -67,6 +76,8 @@ function ItemCardPage() {
                     </div>
                 </div>
             </div>
+            }
+            <ModalBuyItem isOpen={isOpenBuyModal} handleClose={() => setOpenBuyModal(false)}/>
         </main>
     )
 }

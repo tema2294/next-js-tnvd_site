@@ -24,7 +24,7 @@ export const ModalBuyItem = (props: {handleClose:()=>void,isOpen: boolean})=> {
         aria-describedby="modal-modal-description"
     >
         <Box sx={style}>
-            <h1>для того чтобы заказать товар воспользуйтесь номером 8999-790-1085</h1>
+            <h1>для того чтобы заказать товар воспользуйтесь номером 8-906-635-9997</h1>
         </Box>
     </Modal>
     )

@@ -14,16 +14,16 @@ import {BurgerCategories} from "../../../components/burderCategories/burgerCateg
 function ItemListPage() {
     const router = useRouter()
     const { query } = router
-    console.log(query?.categoryName)
+
     const defaultSort = 'Сортировка'
     const asc = 'По возврастанию'
     const desc = 'По убыванию'
+
     const { categoryName,metaDescription } = getDataCategoryMetaName(query?.categoryName)
 
     const [sortValue, setSortValue] = useState(defaultSort)
     const [data, setData] = useState<any[]>([])
     const [isOpenSortMenu, setOpenSortMenu] = useState(false)
-    const [isOpenBuyModal, setOpenBuyModal] = useState(false)
 
     const handleSelect = (e: any) => {
         setSortValue(e.target?.innerText)
@@ -45,12 +45,10 @@ function ItemListPage() {
 
     useEffect(()=>{
         const {categoryName = ''} = query
-        const categoryNameString = typeof categoryName === 'string' ? categoryName : categoryName[0]
-        const defaultData = getDataCategory(categoryNameString)
+        const defaultData = getDataCategory(categoryName)
         setData(defaultData)
     },[query])
 
-    const handleOpenBuyModal = () => setOpenBuyModal(true)
     return (
         <main className={'item-list-page-container'}>
             <Head>
@@ -61,7 +59,7 @@ function ItemListPage() {
                     content={metaDescription}
                 />
             </Head>
-          <Header/>
+          <Header prevHref={'/'}/>
             <div className="shop-page-category-container">
                 <BurgerCategories/>
             </div>
@@ -110,7 +108,6 @@ function ItemListPage() {
                     )}
                 </div>
             </div>
-            <ModalBuyItem isOpen={isOpenBuyModal} handleClose={() => setOpenBuyModal(false)}/>
         </main>
     )
 }
