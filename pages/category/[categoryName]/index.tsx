@@ -4,14 +4,16 @@ import Link from "next/link";
 import {ascSortFunction, descSortFunction} from "../../../tools/sortFuncitons";
 import {formatNumber} from "../../../tools/format-number";
 import {useRouter} from 'next/router'
-import {getDataCategory} from "../../../data/getDataCategory";
+import { getDataCategoryFromServer } from "../../../data/getDataCategory";
 import { defaultImg } from "../../../consts/consts";
 import Head from "next/head";
 import {getDataCategoryMetaName} from "../../../data/getDataCategoryMetaName";
 import {Header} from "../../../components/header/header";
 import {BurgerCategories} from "../../../components/burderCategories/burgerCategories";
+import {apiHeroku} from "../../../tools/api";
 
-function ItemListPage() {
+function ItemListPage(props:{items: any[],categoryName: string}) {
+    const { items } = props
     const router = useRouter()
     const { query } = router
 
@@ -37,6 +39,7 @@ function ItemListPage() {
             setData([...data].sort(sortFunction))
         }
     }, [sortValue])
+
     useEffect(()=>{
         if (categoryName === 'undefined') {
             router.push('/категория-не-найдена')
@@ -45,7 +48,7 @@ function ItemListPage() {
 
     useEffect(()=>{
         const {categoryName = ''} = query
-        const defaultData = getDataCategory(categoryName)
+        const defaultData = getDataCategoryFromServer(categoryName,items)
         setData(defaultData)
     },[query])
 
@@ -82,7 +85,7 @@ function ItemListPage() {
                     {data.map((item: any) =>
                         <div key={item.name} className="item-card">
                             <div className="img-container">
-                                <img src={item?.img || defaultImg}/>
+                                <img src={item?.image ? item?.image[0] : item?.image}/>
                             </div>
                             <div className="info-container">
                                 <div className="header-card">
@@ -91,7 +94,7 @@ function ItemListPage() {
                                 </div>
                                 <div className="info"></div>
                                 <div className="action-card-container">
-                                    <Link href={`${query?.categoryName}/item/${item?.name}`}>
+                                    <Link href={`${query?.categoryName}/item/${item?._id}`}>
                                     <div className="btn" >
                                         <svg className="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv"
                                              focusable="false"
@@ -111,5 +114,28 @@ function ItemListPage() {
         </main>
     )
 }
+export async function getStaticPaths() {
+    const { data } = await apiHeroku.get('items/0')
 
+    const category:string[] = data.map((item:any) => item.category)
+    const uniqueCategory = Array.from(new Set(category));
+
+    const paths = uniqueCategory.map((categoryName) => ({
+        params: { categoryName },
+    }))
+
+    return { paths, fallback: false }
+}
+
+export async function getStaticProps(props:{params:any}) {
+    const { categoryName } = props.params
+    const { data } = await apiHeroku.get(`items/${categoryName}`)
+
+    return {
+        props: {
+            items: data || [],
+            categoryName: categoryName,
+        },
+    }
+}
 export default ItemListPage

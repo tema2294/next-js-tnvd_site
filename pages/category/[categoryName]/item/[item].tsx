@@ -16,18 +16,18 @@ import {useEffect, useState} from "react";
 import {getDataCategory} from "../../../../data/getDataCategory";
 import {ModalBuyItem} from "../../../../components/modalBuyItem";
 import { getPrevHref } from '../../../../tools/getPrevHref';
+import {apiHeroku} from "../../../../tools/api";
 
-function ItemCardPage() {
+function ItemCardPage(props:{itemData: any}) {
+    const {itemData} = props
     const router = useRouter()
     const {query} = router
     const {item: itemName,categoryName = ''} = query
-    const [item,setItem] = useState<any>()
+
+    const [item,setItem] = useState<any>(itemData)
     const [isOpenBuyModal, setOpenBuyModal] = useState(false)
     const prevHref = getPrevHref(router)
-    useEffect(()=>{
-        const defaultData = getDataCategory(categoryName)
-         setItem(defaultData.find((item)=>item.name === itemName))
-    },[itemName])
+
 
     const handleOpenBuyModal = () => setOpenBuyModal(true)
 
@@ -54,7 +54,12 @@ function ItemCardPage() {
                             modules={[Pagination, Navigation]}
                             className="mySwiper"
                         >
-                            <SwiperSlide><img className={style.swiperImg} src={item?.img || defaultImg}/></SwiperSlide>
+                            {
+                                item.image
+                                    ?
+                                    item.image.map((img:string) => (<SwiperSlide key={img}><img className={style.swiperImg} src={img || defaultImg}/></SwiperSlide>))
+                                    : <SwiperSlide><img className={style.swiperImg} src={defaultImg}/></SwiperSlide>
+                            }
                         </Swiper>
                     </div>
                     <div className={style.infoContainer}>
@@ -81,5 +86,27 @@ function ItemCardPage() {
         </main>
     )
 }
+export async function getStaticPaths() {
+    const { data } = await apiHeroku.get('items/0')
 
+    const paths = data.map((props:{_id:string,category: string}) => {
+        const { _id ,category: categoryName} = props
+        return { params: { item: _id ,categoryName} }
+    })
+
+    return { paths, fallback: false }
+}
+
+export async function getStaticProps(props:{ params:any }) {
+
+    const { item:id } = props.params
+
+    const { data } = await apiHeroku.get(`items/0`)
+    const item = data.find((item:any)=> item._id === id )
+    return {
+        props: {
+            itemData: item,
+        },
+    }
+}
 export default ItemCardPage

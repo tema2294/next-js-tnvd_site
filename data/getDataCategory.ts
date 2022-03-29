@@ -6,7 +6,6 @@ import {plungerPair_data} from "./plungerPair";
 
 export const getDataCategory = (category: string | string[]):any[] => {
     const categoryNameString = typeof category === 'string' ? category : category[0]
-
     switch (categoryNameString) {
         case 'tnnd':
             return tnnd_data
@@ -21,4 +20,8 @@ export const getDataCategory = (category: string | string[]):any[] => {
         default:
             return []
     }
+}
+export const getDataCategoryFromServer = (category: string | string[],data: any[]):any[] => {
+    const categoryNameString = typeof category === 'string' ? category : category[0]
+    return data.filter((item: any)=> item.category === categoryNameString)
 }
