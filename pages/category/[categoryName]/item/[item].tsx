@@ -55,7 +55,7 @@ function ItemCardPage(props:{itemData: any}) {
                             className="mySwiper"
                         >
                             {
-                                item.image
+                                item.image.length > 0
                                     ?
                                     item.image.map((img:string) => (<SwiperSlide key={img}><img className={style.swiperImg} src={img || defaultImg}/></SwiperSlide>))
                                     : <SwiperSlide><img className={style.swiperImg} src={defaultImg}/></SwiperSlide>

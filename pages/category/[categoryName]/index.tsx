@@ -85,7 +85,7 @@ function ItemListPage(props:{items: any[],categoryName: string}) {
                     {data.map((item: any) =>
                         <div key={item.name} className="item-card">
                             <div className="img-container">
-                                <img src={item?.image ? item?.image[0] : item?.image}/>
+                                <img src={ item?.image.length > 0 ? item?.image[0] : defaultImg}/>
                             </div>
                             <div className="info-container">
                                 <div className="header-card">
