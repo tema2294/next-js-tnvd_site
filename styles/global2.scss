@@ -262,7 +262,10 @@
 
 }
  .swiper-slide-active {
-  width: 80%!important;
+  width: 100%!important;
+   img {
+     width: 80%!important;
+   }
 }
 
 .shop-page-category-container .burger_menu span {
