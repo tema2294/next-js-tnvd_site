@@ -261,6 +261,9 @@
   padding: 100px 0;
 
 }
+.swiper-slide + .swiper-slide-active {
+  width: 80%!important;
+}
 
 .shop-page-category-container .burger_menu span {
   background: black !important;

@@ -116,10 +116,6 @@
     max-height: 600px;
     margin-bottom: 30px;
 }
-.swiperImg {
-    width: 300px;
-    display: block;
-}
 
 @media (max-width: 800px) {
     .swiperContainer {
