@@ -142,6 +142,7 @@ nav > * {
   font-weight: bold;
   transition: 1s;
   border: 1px solid white;
+  display: none;
 
 }
 .info-container_btn:hover {
