@@ -7,7 +7,6 @@ import Head from 'next/head'
 
 import Image from 'next/image'
 import {Categories} from "../components/categories/categories";
-import {IndexCounter} from "../components/counters/indexCounter";
 
 function Index() {
     const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(false)
@@ -37,7 +36,6 @@ function Index() {
                     name="description"
                     content="Дизель маркет . Топливные насосы высокого давления ремонт и продажа , доставка по всей России. ТНВД - Дизель маркет 76 Ярославль.Распылители , подкачки , плунжерные пары ,тннд , насосы."
                 />
-                <IndexCounter />
             </Head>
             <header>
                 <nav className="nav-container">
