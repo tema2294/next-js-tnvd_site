@@ -118,10 +118,10 @@
 }
 .itemNameContainer {
     border-radius: 11px;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+    box-shadow: 0 2px 24px rgb(0 0 0 / 12%);
     padding: 15px 20px;
     width: 530px;
-
+    margin-bottom: 10px;
 }
 @media (max-width: 800px) {
     .swiperContainer {
