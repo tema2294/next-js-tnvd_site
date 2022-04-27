@@ -4,7 +4,6 @@ import {Header} from "../../../../components/header/header";
 import style from '../../../../styles/itemPage.module.css'
 import {defaultImg} from "../../../../consts/consts";
 import {formatNumber} from "../../../../tools/format-number";
-import {tnvd_data} from "../../../../data/tnvd";
 import {Swiper, SwiperSlide} from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -12,22 +11,18 @@ import "swiper/css/navigation";
 import {Pagination, Navigation} from "swiper";
 import heart from '/public/img/heart.svg'
 import Image from 'next/image'
-import {useEffect, useState} from "react";
-import {getDataCategory} from "../../../../data/getDataCategory";
+import { useState } from "react";
 import {ModalBuyItem} from "../../../../components/modalBuyItem";
 import { getPrevHref } from '../../../../tools/getPrevHref';
 import {apiHeroku} from "../../../../tools/api";
 
 function ItemCardPage(props:{itemData: any}) {
-    const {itemData} = props
+    const {itemData:item} = props
     const router = useRouter()
-    const {query} = router
-    const {item: itemName,categoryName = ''} = query
+    const { name } = item
 
-    const [item,setItem] = useState<any>(itemData)
     const [isOpenBuyModal, setOpenBuyModal] = useState(false)
     const prevHref = getPrevHref(router)
-
 
     const handleOpenBuyModal = () => setOpenBuyModal(true)
 
@@ -35,10 +30,10 @@ function ItemCardPage(props:{itemData: any}) {
         <main className={'item-list-page-container'}>
             <Head>
                 <meta name="yandex-verification" content="4f4c25a806e74627"/>
-                <title>{`Купить Видеокарта ${item?.name || ''} в интернет магазине Дизель Маркет. Характеристики, цена ${item?.name || ''}`}</title>
+                <title>{`Купить Видеокарта ${name || ''} в интернет магазине Дизель Маркет. Характеристики, цена ${name || ''}`}</title>
                 <meta
                     name="description"
-                    content={`Купить с гарантией качества ${item?.name || ''} в магазине Дизель Маркет. Выгодные цены на ${item?.name || ''} в сети магазинов Дизель Маркет. Доставка по всей России.`}
+                    content={`Купить с гарантией качества ${name || ''} в магазине Дизель Маркет. Выгодные цены на ${name || ''} в сети магазинов Дизель Маркет. Доставка по всей России.`}
                 />
             </Head>
             <Header prevHref={prevHref}/>
@@ -61,6 +56,9 @@ function ItemCardPage(props:{itemData: any}) {
                                     : <SwiperSlide><img className={style.swiperImg} src={defaultImg}/></SwiperSlide>
                             }
                         </Swiper>
+                    </div>
+                    <div className={style.itemNameContainer}>
+                        { name }
                     </div>
                     <div className={style.infoContainer}>
                         <div className={style.price}>{formatNumber(item.price)} ₽</div>

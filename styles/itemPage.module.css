@@ -116,12 +116,18 @@
     max-height: 600px;
     margin-bottom: 30px;
 }
+.itemNameContainer {
+    border-radius: 11px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+    padding: 15px 20px;
+    width: 530px;
 
+}
 @media (max-width: 800px) {
     .swiperContainer {
         width: 100vw;
     }
-    .infoContainer {
+    .infoContainer , .itemNameContainer {
         width: 80%;
     }
     .infoContainer > img {
@@ -129,7 +135,7 @@
     }
 }
 @media (max-width: 500px) {
-    .infoContainer {
+    .infoContainer , .itemNameContainer {
         width: 85%;
         justify-content: center;
     }
