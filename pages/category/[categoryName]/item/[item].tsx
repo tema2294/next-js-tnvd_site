@@ -30,7 +30,7 @@ function ItemCardPage(props:{itemData: any}) {
         <main className={'item-list-page-container'}>
             <Head>
                 <meta name="yandex-verification" content="4f4c25a806e74627"/>
-                <title>{`Купить Видеокарта ${name || ''} в интернет магазине Дизель Маркет. Характеристики, цена ${name || ''}`}</title>
+                <title>{`Купить ${name || ''} в интернет магазине Дизель Маркет. Характеристики, цена ${name || ''}`}</title>
                 <meta
                     name="description"
                     content={`Купить с гарантией качества ${name || ''} в магазине Дизель Маркет. Выгодные цены на ${name || ''} в сети магазинов Дизель Маркет. Доставка по всей России.`}
