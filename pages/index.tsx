@@ -9,7 +9,7 @@ import Image from 'next/image'
 import {Categories} from "../components/categories/categories";
 
 function Index() {
-    const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(false)
+    const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(true)
 
     function customScroll(type: string) {
         const sections = document.querySelector(type);

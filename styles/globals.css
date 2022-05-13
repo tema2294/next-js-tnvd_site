@@ -11,8 +11,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-family: 'Museo Sans Cyrl bold', sans-serif;
   overflow-x: hidden;
   /*width: 100vw;*/
@@ -172,7 +170,6 @@ nav > * {
 .info-section_main {
   max-width: 760px;
   font-size: 20px;
-  font-family: 'Roboto',Arial,sans-serif;
   font-weight: 300;
   line-height: 1.55;
 }
@@ -377,19 +374,19 @@ nav > * {
     padding: 0;
   }
   .info-container {
-    gap: 40px;
+    gap: 25px;
   }
   .info-container_title {
-    font-size: 18px;
+    font-size: 22px;
   }
   .info-container_text {
-    font-size: 12px;
+    font-size: 14px;
   }
   .main-section {
-    height: 80vh;
+    height: 75vh;
   }
   .main-section:after {
-    height: 80vh;
+    height: 75vh;
   }
   .advantages-section_title {
     font-size: 32px;
