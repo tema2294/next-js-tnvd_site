@@ -353,7 +353,7 @@ nav > * {
 
 @media (max-width: 800px) {
   .category-list {
-    grid-gap: 30px;
+    gap: 0;
   }
 
   .advantages-section_list {
