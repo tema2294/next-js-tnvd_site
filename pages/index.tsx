@@ -2,6 +2,7 @@ import {useState} from "react";
 import imgWarranty from '../public/img/342-3426164_5-year-f.png'
 import imgAvailability from '../public/img/vote-icon-19.png'
 import imgObligations from '../public/img/png-clipart-computer.png'
+import logo from '../public/img/main_logo.svg'
 import Head from 'next/head'
 
 
@@ -9,7 +10,7 @@ import Image from 'next/image'
 import {Categories} from "../components/categories/categories";
 
 function Index() {
-    const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(true)
+    const [isOpenBurgerMenu, setOpenBurgerMenu] = useState(false)
 
     function customScroll(type: string) {
         const sections = document.querySelector(type);
@@ -39,7 +40,9 @@ function Index() {
             </Head>
             <header>
                 <nav className="nav-container">
-                    <div>ТНВД 76</div>
+                    <div className="logo">
+                        <Image objectFit={'contain'} layout="fill"  src={logo} alt="logo company"/>
+                    </div>
                     <div onClick={() => setOpenBurgerMenu((prev) => !prev)}
                          className={`${!isOpenBurgerMenu ? 'burger_menu' : 'burger_menu burger_menu-open'}`}>
                         <span></span>

@@ -12,7 +12,6 @@
   padding: 25px;
   cursor: pointer;
   gap: 15px;
-
 }
 .card:hover {
   transform: translateY(-7px);
@@ -22,10 +21,6 @@
   width: 100%;
   position: relative;
   height: 140px;
-}
-.cardTitle {
-  font-size: 18px;
-  margin-top: 10px;
 }
 
 .header-card {
@@ -49,11 +44,26 @@
 
 }
 
-.content-card {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.contentCard {
+height: 44px;
+  margin-top: 10px;
   text-align: center;
-  width: 100%;
+  min-height: 44px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .card {
+    width: 40%;
+    padding: 10px 5px;
+    gap: 0;
+  }
+  .imgContainer {
+    height: 80px;
+  }
+  .contentCard {
+    font-size: 16px;
+    margin: 0;
+  }
 }

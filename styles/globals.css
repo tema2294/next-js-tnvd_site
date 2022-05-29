@@ -32,7 +32,11 @@ main {
 }
 
 
-
+.logo {
+  height: 100px;
+  width: 100px;
+  position: relative;
+}
 .main-section {
   background-image: url('../public/img/background-image.jpg');
   background-size:cover ;
@@ -76,7 +80,7 @@ nav > * {
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  padding: 10px 6%;
+  padding: 0 6%;
   color: white;
 }
 .nav-list {
@@ -348,6 +352,10 @@ nav > * {
 
 
 @media (max-width: 800px) {
+  .category-list {
+    
+  }
+
   .advantages-section_list {
     grid-template-columns: 1fr;
     grid-gap: 50px;
